@@ -71,10 +71,10 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="codFiscaleInput" class="form-label">Codice Fiscale*: </label>
+                            <label for="codFiscaleInput" class="form-label">Codice Fiscale: </label>
                             <input type="text" name="codFiscale"
                                 class="form-control @error('codFiscale') is-invalid @enderror" id="codFiscaleInput"
-                                value="{{ old('codFiscale') }}" placeholder="Codice fiscale" required="required" autofocus>
+                                value="{{ old('codFiscale') }}" placeholder="Codice fiscale" autofocus>
                             @if ($errors->has('codFiscale'))
                                 <span class="text-danger">{{ $errors->first('codFiscale') }}</span>
                             @endif

@@ -37,10 +37,7 @@ class CarbonFootprintController extends Controller
         $carbonFootprint += $request->filled('monthly_oil') ? $request->monthly_oil * 113 : 0;
 
         // Multiply total yearly mileage on your car by 0.79
-        $carbonFootprint += $request->filled('total_mileage') ? $request->total_mileage * 0.79 : 0;
-
-        // Multiply the number of flights (4 hours or less) by 1,100
-        $carbonFootprint += $request->filled('flights_short') ? $request->flights_short * 1100 : 0;
+        $carbonFootprint += $request->filled('total_mileage') ? $request->total_mileage * 0.79 * 1.60934 : 0;
 
         // Multiply the number of flights (4 hours or more) by 4,400
         $carbonFootprint += $request->filled('flights_long') ? $request->flights_long * 4400 : 0;

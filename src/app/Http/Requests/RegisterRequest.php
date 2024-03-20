@@ -35,13 +35,13 @@ class RegisterRequest extends FormRequest
             'provincia' => 'required',
             'nazione' => 'required',
             'codFiscale' => [
-                'required',
                 'unique:users,codFiscale',
+                'nullable',
                 'regex:/^[A-Z]{6}[0-9]{2}[A-Z]{1}[0-9]{2}[A-Z]{1}[0-9]{3}[A-Z]$/'
             ],
             'numTelefono' => 'nullable|numeric',
             'CAP' => 'required|numeric|digits:5',
-            'partitaIva' => 'numeric|digits:11|unique:users,partitaIva',
+            'partitaIva' => 'nullable|numeric|digits:11|unique:users,partitaIva',
             'password' => 'required|min:8',
             /*
             'password' => [

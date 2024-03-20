@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('cognome')->nullable();
             $table->string('ragioneSociale');
             $table->string('partitaIva')->unique()->nullable();
-            $table->string('codFiscale')->unique();
+            $table->string('codFiscale')->unique()->nullable();
             $table->string('indirizzo');
             $table->string('civico');
             $table->string('CAP');
