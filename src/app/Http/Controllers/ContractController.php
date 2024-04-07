@@ -13,22 +13,15 @@ class ContractController extends Controller
 {
     public function addContractIndex()
     {
-        $branchIds = Branch::pluck('idSede');
-        return view('add-contract.index', compact('branchIds'));
+        return view('add-contract.index');
     }
 
     public function myContractsIndex()
     {
-        $user = Auth::user();
-
-        // Ottieni l'elenco delle sedi gestite dall'utente
-        $managedBranches = $user->managedBranches;
-
-        // Ottieni gli id delle sedi gestite dall'utente
-        $managedBranchIds = $managedBranches->pluck('idSede')->toArray();
+        $userId = Auth::user()->id;
 
         // Ottieni i contratti associati alle sedi gestite dall'utente
-        $contracts = Contract::whereIn('idSede', $managedBranchIds)->get();
+        $contracts = Contract::where('id', '=',$userId)->get();
 
         return view('my-contracts.index', compact('contracts'));
     }

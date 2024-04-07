@@ -18,6 +18,13 @@ class Contract extends Model
      */
     protected $fillable = [
         'idSede',
+        'id',
+        'nomeOfferta',
+        'tipoContratto',
+        'prezzoGas',
+        'prezzoLuce',
+        'quotaFissa',
+        /*
         'dataRichiestaServizio',
         'dataInizioValidita',
         'dataFineValidita',
@@ -33,16 +40,7 @@ class Contract extends Model
         'produzioneAcquaCaldaSanitaria',
         'riscaldamentoIndividuale',
         'usoCommerciale',
-    ];
-
-    protected $casts = [
-        'dataRichiestaServizio' => 'datetime',
-        'dataInizioValidita' => 'datetime',
-        'dataFineValidita' => 'datetime',
-        'usoCotturaCibi' => 'boolean',
-        'produzioneAcquaCaldaSanitaria' => 'boolean',
-        'riscaldamentoIndividuale' => 'boolean',
-        'usoCommerciale' => 'boolean',
+        */
     ];
 
 }

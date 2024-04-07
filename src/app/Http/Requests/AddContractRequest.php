@@ -25,7 +25,14 @@ class AddContractRequest extends FormRequest
     {
 
         return [
-            'idSede' => 'required|exists:branches,idSede',
+            'idSede' => 'nullable|exists:branches,idSede',
+            'id' => 'required|exists:users,id',
+            'nomeOfferta' => 'required|string',
+            'tipoContratto' => 'required|string',
+            'prezzoGas' => 'nullable|numeric',
+            'prezzoLuce' => 'nullable|numeric',
+            'quotaFissa' => 'required|numeric',
+            /*
             'dataRichiestaServizio' => 'required|date',
             'dataInizioValidita' => 'required|date',
             'dataFineValidita' => 'required|date',
@@ -41,6 +48,7 @@ class AddContractRequest extends FormRequest
             'produzioneAcquaCaldaSanitaria' => 'nullable|integer',
             'riscaldamentoIndividuale' => 'nullable|integer',
             'usoCommerciale' => 'nullable|integer',
+            */
         ];
     }
 }

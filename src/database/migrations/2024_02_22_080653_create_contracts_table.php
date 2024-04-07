@@ -13,8 +13,16 @@ return new class extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->id('idContratto');
-            $table->bigInteger('idSede',false,true);
+            $table->bigInteger('idSede',false,true)->nullable();
             $table->foreign('idSede')->references('idSede')->on('branches');
+            $table->bigInteger('id',false,true);
+            $table->foreign('id')->references('id')->on('users');
+            $table->string('nomeOfferta');
+            $table->string('tipoContratto');
+            $table->decimal('prezzoGas', 8, 2)->nullable();
+            $table->decimal('prezzoLuce', 8, 2)->nullable();
+            $table->decimal('quotaFissa', 8, 2);
+            /*
             $table->dateTime('dataRichiestaServizio');
             $table->dateTime('dataInizioValidita');
             $table->dateTime('dataFineValidita');
@@ -30,6 +38,7 @@ return new class extends Migration
             $table->integer('produzioneAcquaCaldaSanitaria')->nullable();
             $table->integer('riscaldamentoIndividuale')->nullable();
             $table->integer('usoCommerciale')->nullable();
+            */
             $table->timestamps();
         });
     }
