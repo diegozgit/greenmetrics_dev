@@ -33,7 +33,6 @@ class RegisterRequest extends FormRequest
             'civico' => 'required|min:1|numeric',
             'comune' => 'required',
             'provincia' => 'required',
-            'nazione' => 'required',
             'codFiscale' => [
                 'unique:users,codFiscale',
                 'nullable',

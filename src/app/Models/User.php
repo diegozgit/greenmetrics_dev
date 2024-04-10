@@ -72,6 +72,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function managedBranches()
     {
-        return $this->hasMany(Branch::class, 'id', 'id')->select('idSede', 'descrizione', 'indirizzo', 'civico', 'CAP', 'localita','provincia');
+        return $this->hasMany(Branch::class, 'id', 'id')->select('idSede', 'indirizzo', 'civico', 'CAP', 'comune','provincia');
     }
 }

@@ -23,7 +23,7 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
 
-        // Ottieni l'elenco delle sedi gestite dall'utente
+        // Ottieni l'elenco delle sedi o proprietà gestite dall'utente
         $managedBranches = $user->managedBranches;
 
          return view('dashboard.manage-branches', compact('managedBranches'));
@@ -35,9 +35,9 @@ class DashboardController extends Controller
             $branchId = $request->input('branch_id');
             $branch = Branch::findOrFail($branchId);
             $branch->delete();
-            return redirect()->back()->with('success', "Sede eliminata con successo.");
+            return redirect()->back()->with('success', "Eliminata sede o proprietà con successo.");
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', "Errore durante l'eliminazione della sede: " . $e->getMessage());
+            return redirect()->back()->with('error', "Errore durante l'eliminazione della sede o proprietà: " . $e->getMessage());
         }
     }
 

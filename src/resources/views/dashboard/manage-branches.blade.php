@@ -3,25 +3,21 @@
 @section('content')
     <div class="bg-light p-5 rounded">
         @auth
-            <h1>Le tue sedi</h1>
+            <h1>Le tue sedi o proprietà</h1>
             <div class="row justify-content-left">
                 <div class="col-md-8">
-                    <!-- Mostra qui l'elenco delle sedi gestite dall'utente -->
+                    <!-- Mostra qui l'elenco delle sedi o proprietà gestite dall'utente -->
                     @if (count($managedBranches) > 0)
                         <ul class="list-group">
                             @foreach ($managedBranches as $branch)
                                 <li class="list-group-item">
-                                    <strong>ID Sede:</strong> {{ $branch->idSede }}
-                                    <br>
-                                    <strong>Descrizione:</strong> {{ $branch->descrizione }}
-                                    <br>
                                     <strong>Indirizzo:</strong> {{ $branch->indirizzo }}
                                     <br>
                                     <strong>Civico:</strong> {{ $branch->civico }}
                                     <br>
                                     <strong>CAP:</strong> {{ $branch->CAP }}
                                     <br>
-                                    <strong>Località:</strong> {{ $branch->localita }}
+                                    <strong>Comune:</strong> {{ $branch->comune }}
                                     <br>
                                     <strong>Provincia:</strong> {{ $branch->provincia }}
                                     <br>
@@ -35,7 +31,7 @@
                             @endforeach
                         </ul>
                     @else
-                        <p>Nessuna sede disponibile.</p>
+                        <p>Nessuna sede o proprietà disponibile.</p>
                     @endif
                 </div>
             </div>

@@ -10,7 +10,7 @@
             <a href="{{ route('my-contracts.index') }}" class="btn btn-lg btn-warning me-2">I tuoi Contratti</a>
             <a href="{{ route('carbon-footprint.index') }}" class="btn btn-lg btn-warning me-2">Vai al calcolo del Carbon
                 Footprint</a>
-            <a href="{{ route('branches.index') }}" class="btn btn-lg btn-warning me-2">Registra una sede</a>
+            <a href="{{ route('branches.index') }}" class="btn btn-lg btn-warning me-2">Registra una nuova sede o proprietà</a>
         @endauth
 
         @guest

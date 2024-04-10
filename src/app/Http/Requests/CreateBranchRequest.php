@@ -27,13 +27,11 @@ class CreateBranchRequest extends FormRequest
     {
         return [
             'id' => 'required|exists:users,id',
-            'descrizione' => 'required|string',
             'indirizzo' => 'required|string',
             'civico' => 'required|string',
             'CAP' => 'required|string',
-            'localita' => 'required|string',
+            'comune' => 'required|string',
             'provincia' => 'required|string',
-            'nazione' => 'required|string',
         ];
     }
 
@@ -60,29 +58,26 @@ class CreateBranchRequest extends FormRequest
     {
         $indirizzo = $this->input('indirizzo');
         $civico = $this->input('civico');
-        $localita = $this->input('localita');
+        $comune = $this->input('comune');
         $provincia = $this->input('provincia');
-        $nazione = $this->input('nazione');
 
         $existingBranch = \App\Models\Branch::where([
             'indirizzo' => $indirizzo,
             'civico' => $civico,
-            'localita' => $localita,
+            'comune' => $comune,
             'provincia' => $provincia,
-            'nazione' => $nazione,
         ])->first();
 
         if ($existingBranch) {
             $this->merge([
                 'indirizzo' => null,
                 'civico' => null,
-                'localita' => null,
+                'comune' => null,
                 'provincia' => null,
-                'nazione' => null,
             ]);
 
             $validator = $this->getValidatorInstance();
-            $validator->errors()->add('indirizzo', 'La sede da lei inserita esiste già.');
+            $validator->errors()->add('indirizzo', 'La sede o proprietà da lei inserita esiste già.');
         }
     }
 }

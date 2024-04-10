@@ -19,11 +19,10 @@ class Branch extends Model
      */
     protected $fillable = [
         'id',
-        'descrizione',
         'indirizzo',
         'civico',
         'CAP',
-        'localita',
+        'comune',
         'provincia',
     ];
 
@@ -31,7 +30,7 @@ class Branch extends Model
     {
         $branch = self::where('idSede', $idSede)->first();
 
-        return $branch ? $branch->descrizione . ", " . $branch->indirizzo . " " . $branch->civico . " " . $branch->localita . ", " . $branch->provincia: 'N/A'; // Return description or 'N/A' if not found
+        return $branch ? $branch->indirizzo . " " . $branch->civico . " " . $branch->comune . ", " . $branch->provincia: 'N/A'; // Return description or 'N/A' if not found
     }
 
 }

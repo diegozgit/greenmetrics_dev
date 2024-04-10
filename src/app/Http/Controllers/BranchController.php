@@ -29,6 +29,6 @@ class BranchController extends Controller
 
         event(new Registered($branch));
 
-        return redirect('/branches')->with('success', "Registrazione sede avvenuta con successo.");
+        return redirect('/branches')->with('success', "Registrazione avvenuta con successo.");
     }
 }

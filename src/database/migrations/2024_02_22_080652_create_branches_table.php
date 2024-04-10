@@ -15,11 +15,10 @@ return new class extends Migration
             $table->id('idSede');
             $table->bigInteger('id',false,true);
             $table->foreign('id')->references('id')->on('users');
-            $table->string('descrizione');
             $table->string('indirizzo');
             $table->string('civico');
             $table->string('CAP');
-            $table->string('localita');
+            $table->string('comune');
             $table->string('provincia');
             $table->timestamps();
         });

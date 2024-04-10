@@ -145,6 +145,6 @@
         </div>
         <br>
         <a href="/dashboard/change-password" class="btn btn-success">Cambia password</a>
-        <a href="/dashboard/manage-branches" class="btn btn-success">Gestisci sedi</a>
+        <a href="/dashboard/manage-branches" class="btn btn-success">Gestisci sedi o proprietà</a>
     </div>
 @endsection

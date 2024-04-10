@@ -3,7 +3,7 @@
 @section('content')
     <div class="bg-light p-5 rounded">
         @auth
-            <h1>Registra una sede</h1>
+            <h1>Registra una sede o proprietà</h1>
             <div class="row justify-content-left">
                 <div class="col-md-8">
                     <div class="card">
@@ -14,7 +14,7 @@
                             <div class="card-body">
                                 @if (session('status'))
                                     <div class="alert alert-success" role="alert">
-                                        Sede registrata con successo!
+                                        Sede o proprietà registrata con successo!
                                     </div>
                                 @elseif (session('error'))
                                     <div class="alert alert-danger" role="alert">
@@ -22,7 +22,6 @@
                                     </div>
                                 @endif
                                 <input type="hidden" name="id" value="{{ Auth::user()->id }}">
-                                <input type="hidden" name="descrizione" value="{{ Auth::user()->ragioneSociale }}">
                                 <div class="mb-3">
                                     <label for="indirizzoInput" class="form-label">Indirizzo: </label>
                                     <input type="text" name="indirizzo"
@@ -54,12 +53,12 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="localitaInput" class="form-label">Località: </label>
-                                    <input type="text" name="localita"
-                                        class="form-control @error('localita') is-invalid @enderror" id="localitaInput"
-                                        value="{{ old('localita') }}" placeholder="Località" required="required" autofocus>
-                                    @if ($errors->has('localita'))
-                                        <span class="text-danger">{{ $errors->first('localita') }}</span>
+                                    <label for="comuneInput" class="form-label">Comune: </label>
+                                    <input type="text" name="comune"
+                                        class="form-control @error('comune') is-invalid @enderror" id="comuneInput"
+                                        value="{{ old('comune') }}" placeholder="Comune" required="required" autofocus>
+                                    @if ($errors->has('comune'))
+                                        <span class="text-danger">{{ $errors->first('comune') }}</span>
                                     @endif
                                 </div>
 
@@ -72,7 +71,7 @@
                                         <span class="text-danger">{{ $errors->first('provincia') }}</span>
                                     @endif
                                 </div>
-                                <button class="btn btn-success" type="submit">Registra sede</button>
+                                <button class="btn btn-success" type="submit">Registra</button>
                             </div>
                         </form>
                     </div>

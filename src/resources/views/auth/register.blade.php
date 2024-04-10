@@ -27,7 +27,7 @@
                 @csrf
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">Inserisci qua i tuoi dati personali(Segnati con * sono i dati da inserire
+                        <h6 class="card-title">Inserisci qua i tuoi dati personali (Segnati con * sono i dati da inserire
                             obbligatoriamente):</h6>
                         @include('layouts.partials.messages')
 
@@ -81,7 +81,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="indirizzoInput" class="form-label">Via della residenza o della sede legale*: </label>
+                            <label for="indirizzoInput" class="form-label">Via della residenza o della sede legale*:
+                            </label>
                             <input type="text" name="indirizzo"
                                 class="form-control @error('indirizzo') is-invalid @enderror" id="indirizzoInput"
                                 value="{{ old('indirizzo') }}" placeholder="Indirizzo" required="required" autofocus>
@@ -91,7 +92,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="civicoInput" class="form-label">Numero Civico della residenza o della sede legale*: </label>
+                            <label for="civicoInput" class="form-label">Numero Civico della residenza o della sede legale*:
+                            </label>
                             <input type="text" name="civico" class="form-control @error('civico') is-invalid @enderror"
                                 id="civicoInput" value="{{ old('civico') }}" placeholder="Numero civico"
                                 required="required" autofocus>
@@ -110,7 +112,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="comuneInput" class="form-label">Comune della residenza o della sede legale*: </label>
+                            <label for="comuneInput" class="form-label">Comune della residenza o della sede legale*:
+                            </label>
                             <input type="text" name="comune" class="form-control @error('comune') is-invalid @enderror"
                                 id="comuneInput" value="{{ old('comune') }}" placeholder="Comune" required="required"
                                 autofocus>
@@ -120,7 +123,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="provinciaInput" class="form-label">Provincia della residenza o della sede legale*: </label>
+                            <label for="provinciaInput" class="form-label">Provincia della residenza o della sede legale*:
+                            </label>
                             <input type="text" name="provincia"
                                 class="form-control @error('provincia') is-invalid @enderror" id="provinciaInput"
                                 value="{{ old('provincia') }}" placeholder="Provincia" required="required" autofocus>
