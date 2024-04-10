@@ -32,7 +32,7 @@
                         @include('layouts.partials.messages')
 
                         <div class="mb-3">
-                            <label for="nomeInput" class="form-label">Nome: </label>
+                            <label for="nomeInput" class="form-label">Nome (Solo per privati): </label>
                             <input type="text" name="nome" class="form-control @error('nome') is-invalid @enderror"
                                 id="nomeInput" value="{{ old('nome') }}" placeholder="Nome" autofocus>
                             @if ($errors->has('nome'))
@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="cognomeInput" class="form-label">Cognome: </label>
+                            <label for="cognomeInput" class="form-label">Cognome (Solo per privati): </label>
                             <input type="text" name="cognome" class="form-control @error('cognome') is-invalid @enderror"
                                 id="cognomeInput" value="{{ old('cognome') }}" placeholder="Cognome" autofocus>
                             @if ($errors->has('cognome'))
@@ -61,7 +61,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="partitaIvaInput" class="form-label">Partita IVA: </label>
+                            <label for="partitaIvaInput" class="form-label">Partita IVA (Solo per aziende): </label>
                             <input type="text" name="partitaIva"
                                 class="form-control @error('partitaIva') is-invalid @enderror" id="partitaIvaInput"
                                 value="{{ old('partitaIva') }}" placeholder="Partita IVA" autofocus>
@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="codFiscaleInput" class="form-label">Codice Fiscale: </label>
+                            <label for="codFiscaleInput" class="form-label">Codice Fiscale (Solo per privati): </label>
                             <input type="text" name="codFiscale"
                                 class="form-control @error('codFiscale') is-invalid @enderror" id="codFiscaleInput"
                                 value="{{ old('codFiscale') }}" placeholder="Codice fiscale" autofocus>
@@ -81,7 +81,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="indirizzoInput" class="form-label">Indirizzo*: </label>
+                            <label for="indirizzoInput" class="form-label">Via della residenza o della sede legale*: </label>
                             <input type="text" name="indirizzo"
                                 class="form-control @error('indirizzo') is-invalid @enderror" id="indirizzoInput"
                                 value="{{ old('indirizzo') }}" placeholder="Indirizzo" required="required" autofocus>
@@ -91,7 +91,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="civicoInput" class="form-label">Numero Civico*: </label>
+                            <label for="civicoInput" class="form-label">Numero Civico della residenza o della sede legale*: </label>
                             <input type="text" name="civico" class="form-control @error('civico') is-invalid @enderror"
                                 id="civicoInput" value="{{ old('civico') }}" placeholder="Numero civico"
                                 required="required" autofocus>
@@ -101,7 +101,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="capInput" class="form-label">CAP*: </label>
+                            <label for="capInput" class="form-label">CAP della residenza o della sede legale*: </label>
                             <input type="text" name="CAP" class="form-control @error('CAP') is-invalid @enderror"
                                 id="capInput" value="{{ old('CAP') }}" placeholder="CAP" required="required" autofocus>
                             @if ($errors->has('CAP'))
@@ -110,7 +110,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="comuneInput" class="form-label">Comune*: </label>
+                            <label for="comuneInput" class="form-label">Comune della residenza o della sede legale*: </label>
                             <input type="text" name="comune" class="form-control @error('comune') is-invalid @enderror"
                                 id="comuneInput" value="{{ old('comune') }}" placeholder="Comune" required="required"
                                 autofocus>
@@ -120,22 +120,12 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="provinciaInput" class="form-label">Provincia*: </label>
+                            <label for="provinciaInput" class="form-label">Provincia della residenza o della sede legale*: </label>
                             <input type="text" name="provincia"
                                 class="form-control @error('provincia') is-invalid @enderror" id="provinciaInput"
                                 value="{{ old('provincia') }}" placeholder="Provincia" required="required" autofocus>
                             @if ($errors->has('provincia'))
                                 <span class="text-danger">{{ $errors->first('provincia') }}</span>
-                            @endif
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="nazioneInput" class="form-label">Nazione*: </label>
-                            <input type="text" name="nazione"
-                                class="form-control @error('nazione') is-invalid @enderror" id="nazioneInput"
-                                value="{{ old('nazione') }}" placeholder="Nazione" required="required" autofocus>
-                            @if ($errors->has('nazione'))
-                                <span class="text-danger">{{ $errors->first('nazione') }}</span>
                             @endif
                         </div>
 

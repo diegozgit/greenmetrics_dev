@@ -72,16 +72,6 @@
                                         <span class="text-danger">{{ $errors->first('provincia') }}</span>
                                     @endif
                                 </div>
-
-                                <div class="mb-3">
-                                    <label for="nazioneInput" class="form-label">Nazione: </label>
-                                    <input type="text" name="nazione"
-                                        class="form-control @error('nazione') is-invalid @enderror" id="nazioneInput"
-                                        value="{{ old('nazione') }}" placeholder="Nazione" required="required" autofocus>
-                                    @if ($errors->has('nazione'))
-                                        <span class="text-danger">{{ $errors->first('nazione') }}</span>
-                                    @endif
-                                </div>
                                 <button class="btn btn-success" type="submit">Registra sede</button>
                             </div>
                         </form>

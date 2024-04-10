@@ -31,18 +31,18 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="tipoContratto" class="form-label">Tipo Contratto: </label>
-                                    <select name="tipoContratto" id="tipoContratto"
-                                        class="form-control @error('tipoContratto') is-invalid @enderror" required>
-                                        <option value="GAS" {{ old('tipoContratto') == 'GAS' ? 'selected' : '' }}>GAS
+                                    <label for="utility" class="form-label">Tipo Contratto: </label>
+                                    <select name="utility" id="utility"
+                                        class="form-control @error('utility') is-invalid @enderror" required>
+                                        <option value="GAS" {{ old('utility') == 'GAS' ? 'selected' : '' }}>GAS
                                         </option>
-                                        <option value="LUCE" {{ old('tipoContratto') == 'LUCE' ? 'selected' : '' }}>
+                                        <option value="LUCE" {{ old('utility') == 'LUCE' ? 'selected' : '' }}>
                                             LUCE</option>
-                                        <option value="GAS/LUCE" {{ old('tipoContratto') == 'GAS/LUCE' ? 'selected' : '' }}>
+                                        <option value="GAS/LUCE" {{ old('utility') == 'GAS/LUCE' ? 'selected' : '' }}>
                                             GAS/LUCE
                                         </option>
                                     </select>
-                                    @error('tipoContratto')
+                                    @error('utility')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>

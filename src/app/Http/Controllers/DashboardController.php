@@ -78,7 +78,6 @@ class DashboardController extends Controller
             'new_CAP' => 'nullable',
             'new_comune' => 'nullable',
             'new_provincia' => 'nullable',
-            'new_nazione' => 'nullable',
             'new_numTelefono' => 'nullable',
             'new_email' => 'email|unique:users,email|nullable',
             'new_username' => 'unique:users,username|nullable',
@@ -112,10 +111,6 @@ class DashboardController extends Controller
 
         if ($request->filled('new_provincia')) {
             $updateData['provincia'] = $request->new_provincia;
-        }
-
-        if ($request->filled('new_nazione')) {
-            $updateData['nazione'] = $request->new_nazione;
         }
 
         if ($request->filled('new_codFiscale')) {

@@ -13,13 +13,29 @@
                                 <li class="list-group-item">
                                     <strong>Nome Offerta:</strong> {{ $contract->nomeOfferta }}
                                     <br>
-                                    <strong>Tipo Contratto:</strong> {{ $contract->tipoContratto }}
+                                    <strong>Tipo Contratto:</strong> {{ $contract->utility }}
                                     <br>
                                     <strong>Prezzo Gas:</strong> {{ $contract->prezzoGas }}
                                     <br>
                                     <strong>Prezzo Luce:</strong> {{ $contract->prezzoLuce }}
                                     <br>
                                     <strong>Quota Fissa:</strong> {{ $contract->quotaFissa }}
+                                    <br>
+                                    <strong>Indirizzo:</strong> {{ $contract->indirizzo }}
+                                    <br>
+                                    <strong>Civico:</strong> {{ $contract->civico }}
+                                    <br>
+                                    <strong>CAP:</strong> {{ $contract->CAP }}
+                                    <br>
+                                    <strong>Comune:</strong> {{ $contract->comune }}
+                                    <br>
+                                    <strong>Provinicia:</strong> {{ $contract->provincia }}
+                                    <br>
+                                    <strong>Codice POD:</strong> {{ $contract->codPod }}
+                                    <br>
+                                    <strong>Data inizio validità:</strong> {{ $contract->dataInizioValidita }}
+                                    <br>
+                                    <strong>Data fine validità:</strong> {{ $contract->dataFineValidita }}
                                     <form action="{{ route('delete-contract') }}" method="POST">
                                         @csrf
                                         @method('DELETE')

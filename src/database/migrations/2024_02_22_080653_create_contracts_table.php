@@ -18,10 +18,18 @@ return new class extends Migration
             $table->bigInteger('id',false,true);
             $table->foreign('id')->references('id')->on('users');
             $table->string('nomeOfferta');
-            $table->string('tipoContratto');
+            $table->string('utility');
+            $table->string('indirizzo');
+            $table->string('civico');
+            $table->string('CAP');
+            $table->string('comune');
+            $table->string('provincia');
             $table->decimal('prezzoGas', 8, 2)->nullable();
+            $table->string('codPod'); // IT001E123456789 IT -> NAZIONE, 001 -> CODICE SOCIETÀ DI DISTRIBUZIONE, E-> SIGLA FISSA STABILITA DA ARERA, 12345678 -> CODICE IDENTIDICATIVO CONTATORE, 9 -> CODICE DI CONTROLLO
             $table->decimal('prezzoLuce', 8, 2)->nullable();
             $table->decimal('quotaFissa', 8, 2);
+            $table->dateTime('dataInizioValidita');
+            $table->dateTime('dataFineValidita')->nullable();
             /*
             $table->dateTime('dataRichiestaServizio');
             $table->dateTime('dataInizioValidita');

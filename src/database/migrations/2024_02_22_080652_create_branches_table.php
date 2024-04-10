@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('CAP');
             $table->string('localita');
             $table->string('provincia');
-            $table->string('nazione');
             $table->timestamps();
         });
     }

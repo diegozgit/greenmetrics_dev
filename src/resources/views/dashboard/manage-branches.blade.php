@@ -25,8 +25,6 @@
                                     <br>
                                     <strong>Provincia:</strong> {{ $branch->provincia }}
                                     <br>
-                                    <strong>Nazione:</strong> {{ $branch->nazione }}
-                                    <br>
                                     <form action="{{ route('dashboard.manage-branches.delete') }}" method="POST">
                                         @csrf
                                         @method('DELETE')

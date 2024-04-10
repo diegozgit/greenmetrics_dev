@@ -111,15 +111,6 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="newNazioneInput" class="form-label">Nazione: </label>
-                                <input name="new_nazione" type="text"
-                                    class="form-control @error('new_nazione') is-invalid @enderror" id="newNazioneInput"
-                                    placeholder="{{ Auth::user()->nazione }}">
-                                @error('new_nazione')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
                                 <label for="newNumTelefonoInput" class="form-label">Numero di telefono: </label>
                                 <input name="new_numTelefono" type="text"
                                     class="form-control @error('new_numTelefono') is-invalid @enderror"

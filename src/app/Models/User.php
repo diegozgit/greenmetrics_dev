@@ -32,7 +32,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'CAP',
         'comune',
         'provincia',
-        'nazione',
         'numTelefono',
         'email',
         'username',
@@ -73,6 +72,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function managedBranches()
     {
-        return $this->hasMany(Branch::class, 'id', 'id')->select('idSede', 'descrizione', 'indirizzo', 'civico', 'CAP', 'localita','provincia', 'nazione');
+        return $this->hasMany(Branch::class, 'id', 'id')->select('idSede', 'descrizione', 'indirizzo', 'civico', 'CAP', 'localita','provincia');
     }
 }

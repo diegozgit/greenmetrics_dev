@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('CAP');
             $table->string('comune');
             $table->string('provincia');
-            $table->string('nazione');
             $table->string('numTelefono')->nullable();
             $table->string('email')->unique();
             $table->string('username')->unique();

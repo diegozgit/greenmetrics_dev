@@ -25,14 +25,13 @@ class Branch extends Model
         'CAP',
         'localita',
         'provincia',
-        'nazione',
     ];
 
     protected function getBranchByIdSede($idSede)
     {
         $branch = self::where('idSede', $idSede)->first();
 
-        return $branch ? $branch->descrizione . ", " . $branch->indirizzo . " " . $branch->civico . " " . $branch->localita . ", " . $branch->provincia . " " . $branch->nazione: 'N/A'; // Return description or 'N/A' if not found
+        return $branch ? $branch->descrizione . ", " . $branch->indirizzo . " " . $branch->civico . " " . $branch->localita . ", " . $branch->provincia: 'N/A'; // Return description or 'N/A' if not found
     }
 
 }

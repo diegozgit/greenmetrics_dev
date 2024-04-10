@@ -20,10 +20,18 @@ class Contract extends Model
         'idSede',
         'id',
         'nomeOfferta',
-        'tipoContratto',
+        'utility',
         'prezzoGas',
         'prezzoLuce',
         'quotaFissa',
+        'indirizzo',
+        'civico',
+        'CAP',
+        'comune',
+        'provincia',
+        'codPod',
+        'dataInizioValidita',
+        'dataFineValidita',
         /*
         'dataRichiestaServizio',
         'dataInizioValidita',
@@ -41,6 +49,16 @@ class Contract extends Model
         'riscaldamentoIndividuale',
         'usoCommerciale',
         */
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'dataInizioValidita' => 'datetime',
+        'dataFineValidita' => 'datetime'
     ];
 
 }
