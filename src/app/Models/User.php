@@ -70,7 +70,7 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->attributes['password'] = bcrypt($value);
     }
 
-    public function managedBranches()
+    public function userBranches()
     {
         return $this->hasMany(Branch::class, 'id', 'id')->select('idSede', 'indirizzo', 'civico', 'CAP', 'comune','provincia');
     }

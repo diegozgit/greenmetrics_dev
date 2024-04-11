@@ -19,16 +19,12 @@ class Contract extends Model
     protected $fillable = [
         'idSede',
         'id',
+        'idOfferta',
         'nomeOfferta',
         'utility',
         'prezzoGas',
         'prezzoLuce',
         'quotaFissa',
-        'indirizzo',
-        'civico',
-        'CAP',
-        'comune',
-        'provincia',
         'codPod',
         'dataInizioValidita',
         'dataFineValidita',
@@ -60,5 +56,9 @@ class Contract extends Model
         'dataInizioValidita' => 'datetime',
         'dataFineValidita' => 'datetime'
     ];
+        public function branch()
+    {
+        return $this->belongsTo(Branch::class, 'idSede');
+    }
 
 }

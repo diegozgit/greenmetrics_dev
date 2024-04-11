@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contract;
+use App\Models\Offer;
 use App\Models\Branch;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -16,9 +17,11 @@ class ContractController extends Controller
         $user = Auth::user();
 
         // Ottieni l'elenco delle sedi o proprietà gestite dall'utente
-        $managedBranches = $user->managedBranches;
+        $userBranches = $user->userBranches;
 
-        return view('add-contract.index', compact('managedBranches'));
+        $offers = Offer::all();
+
+        return view('add-contract.index', compact('offers','userBranches'));
     }
 
     public function myContractsIndex()

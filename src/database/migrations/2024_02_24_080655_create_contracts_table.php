@@ -21,11 +21,6 @@ return new class extends Migration
             $table->foreign('idOfferta')->references('idOfferta')->on('offers');
             $table->string('nomeOfferta');
             $table->string('utility');
-            $table->string('indirizzo');
-            $table->string('civico');
-            $table->string('CAP');
-            $table->string('comune');
-            $table->string('provincia');
             $table->decimal('prezzoGas', 8, 2)->nullable();
             $table->string('codPod'); // IT001E123456789 IT -> NAZIONE, 001 -> CODICE SOCIETÀ DI DISTRIBUZIONE, E-> SIGLA FISSA STABILITA DA ARERA, 12345678 -> CODICE IDENTIDICATIVO CONTATORE, 9 -> CODICE DI CONTROLLO
             $table->decimal('prezzoLuce', 8, 2)->nullable();

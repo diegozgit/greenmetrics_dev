@@ -21,21 +21,21 @@
                                     <br>
                                     <strong>Quota Fissa:</strong> {{ $contract->quotaFissa }}
                                     <br>
-                                    <strong>Indirizzo:</strong> {{ $contract->indirizzo }}
-                                    <br>
-                                    <strong>Civico:</strong> {{ $contract->civico }}
-                                    <br>
-                                    <strong>CAP:</strong> {{ $contract->CAP }}
-                                    <br>
-                                    <strong>Comune:</strong> {{ $contract->comune }}
-                                    <br>
-                                    <strong>Provinicia:</strong> {{ $contract->provincia }}
+                                    <strong>Indirizzo:</strong> {{ $contract->branch->indirizzo }}
+                                    {{ $contract->branch->civico }}, {{ $contract->branch->comune }},
+                                    {{ $contract->branch->CAP }},
+                                    {{ $contract->branch->provincia }}
                                     <br>
                                     <strong>Codice POD:</strong> {{ $contract->codPod }}
                                     <br>
                                     <strong>Data inizio validità:</strong> {{ $contract->dataInizioValidita }}
                                     <br>
-                                    <strong>Data fine validità:</strong> {{ $contract->dataFineValidita }}
+                                    <strong>Data fine validità:</strong>
+                                    @if (empty($contract->dataFineValidita))
+                                        Indeterminata
+                                    @else
+                                        {{ $contract->dataFineValidita }}
+                                    @endif
                                     <form action="{{ route('delete-contract') }}" method="POST">
                                         @csrf
                                         @method('DELETE')
@@ -43,6 +43,7 @@
                                         <button type="submit" class="btn btn-danger">Elimina</button>
                                     </form>
                                 </li>
+                                <br>
                             @endforeach
                         </ul>
                     @else

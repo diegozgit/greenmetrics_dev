@@ -34,6 +34,7 @@ return array(
     'App\\Http\\Requests\\RegisterRequest' => $baseDir . '/app/Http/Requests/RegisterRequest.php',
     'App\\Models\\Branch' => $baseDir . '/app/Models/Branch.php',
     'App\\Models\\Contract' => $baseDir . '/app/Models/Contract.php',
+    'App\\Models\\Offer' => $baseDir . '/app/Models/Offer.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
