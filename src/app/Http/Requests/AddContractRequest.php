@@ -27,6 +27,7 @@ class AddContractRequest extends FormRequest
         return [
             'idSede' => 'nullable|exists:branches,idSede',
             'id' => 'required|exists:users,id',
+            'idOfferta' => 'required|exists:offers,idOfferta',
             'nomeOfferta' => 'required|string',
             'utility' => 'required|string',
             'prezzoGas' => 'nullable|numeric',

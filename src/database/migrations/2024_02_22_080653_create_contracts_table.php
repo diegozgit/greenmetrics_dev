@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreign('idSede')->references('idSede')->on('branches');
             $table->bigInteger('id',false,true);
             $table->foreign('id')->references('id')->on('users');
+            $table->bigInteger('idOfferta',false,true);
+            $table->foreign('idOfferta')->references('idOfferta')->on('offers');
             $table->string('nomeOfferta');
             $table->string('utility');
             $table->string('indirizzo');
@@ -30,23 +32,6 @@ return new class extends Migration
             $table->decimal('quotaFissa', 8, 2);
             $table->dateTime('dataInizioValidita');
             $table->dateTime('dataFineValidita')->nullable();
-            /*
-            $table->dateTime('dataRichiestaServizio');
-            $table->dateTime('dataInizioValidita');
-            $table->dateTime('dataFineValidita');
-            $table->string('descrizioneOfferta');
-            $table->string('utility');
-            $table->string('statoContratto');
-            $table->string('tipoPagamento');
-            $table->decimal('potenzaImp', 8, 2);
-            $table->decimal('potDisp', 8, 2);
-            $table->integer('energiaAnno')->nullable();
-            $table->integer('gasAnno')->nullable();
-            $table->integer('usoCotturaCibi')->nullable();
-            $table->integer('produzioneAcquaCaldaSanitaria')->nullable();
-            $table->integer('riscaldamentoIndividuale')->nullable();
-            $table->integer('usoCommerciale')->nullable();
-            */
             $table->timestamps();
         });
     }
