@@ -19,14 +19,14 @@ class DashboardController extends Controller
     {
         return view('dashboard.change-password');
     }
-    public function manageBranches()
+    public function userBranches()
     {
         $user = Auth::user();
 
         // Ottieni l'elenco delle sedi o proprietà gestite dall'utente
-        $managedBranches = $user->managedBranches;
+        $userBranches = $user->userBranches;
 
-         return view('dashboard.manage-branches', compact('managedBranches'));
+         return view('dashboard.manage-branches', compact('userBranches'));
     }
 
     public function destroyBranch(Request $request)

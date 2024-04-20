@@ -78,7 +78,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::get('/dashboard/change-password', 'DashboardController@changePassword')->name('dashboard.change-password');
             Route::post('/dashboard/change-password', 'DashboardController@updatePassword')->name('update-password');
             Route::post('/dashboard', 'DashboardController@updateInfo')->name('update-info');
-            Route::get('/dashboard/manage-branches', 'DashboardController@manageBranches')->name('dashboard.manage-branches');
+            Route::get('/dashboard/manage-branches', 'DashboardController@userBranches')->name('dashboard.manage-branches');
             Route::delete('/dashboard/manage-branches', 'DashboardController@destroyBranch')->name('dashboard.manage-branches.delete');
         });
 
