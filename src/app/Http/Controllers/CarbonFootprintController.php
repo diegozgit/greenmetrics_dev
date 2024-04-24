@@ -31,6 +31,8 @@ class CarbonFootprintController extends Controller
         $carbonFootprint += $request->filled('monthly_oil') ? $request->monthly_oil * 2.34 : 0;
 
         $carbonFootprint += $request->filled('monthly_flights') ? ($request->monthly_flights * 0.285) * ($request->filled('monthly_flights') ? $request->monthly_km : 0) : 0;
+        $foodAndWaste = $carbonFootprint * 0.25;
+        $carbonFootprint += $foodAndWaste;
 
         // The total carbon footprint
         $totalCarbonFootprint = $carbonFootprint;
