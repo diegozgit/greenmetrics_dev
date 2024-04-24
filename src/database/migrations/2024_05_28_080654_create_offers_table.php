@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->id('idOfferta');
+            $table->bigInteger('idFornitore',false,true);
+            $table->foreign('idFornitore')->references('idFornitore')->on('suppliers');
             $table->string('nomeOfferta');
             $table->string('utility');
             $table->decimal('prezzoGas', 8, 2)->nullable();

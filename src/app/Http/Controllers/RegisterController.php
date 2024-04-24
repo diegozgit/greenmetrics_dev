@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Admin;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\RegisterAdminRequest;
+use App\Http\Requests\RegisterSupplierRequest;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -17,6 +22,16 @@ class RegisterController extends Controller
     public function show()
     {
         return view('auth.register');
+    }
+
+    public function showAdmin()
+    {
+        return view('auth.register-admin');
+    }
+
+    public function showSupplier()
+    {
+        return view('auth.register-supplier');
     }
 
     /**
@@ -36,4 +51,25 @@ class RegisterController extends Controller
 
         return redirect('/')->with('success', "Registrazione avvenuta con successo.");
     }
+
+    public function registerAdmin(RegisterAdminRequest $request)
+    {
+        $admin = Admin::create($request->validated());
+
+        event(new Registered($admin));
+
+        auth()->guard('admin')->login($admin);
+
+        return redirect('/')->with('success', "Registrazione avvenuta con successo.");
+    }
+
+    public function registerSupplier(RegisterSupplierRequest $request)
+    {
+        $supplier = Supplier::create($request->validated());
+
+        event(new Registered($supplier));
+
+        return redirect('/')->with('success', "Registrazione avvenuta con successo.");
+    }
+
 }

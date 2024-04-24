@@ -1,0 +1,111 @@
+@extends('layouts.auth-master')
+
+@section('content')
+    <div class="bg-light p-5 rounded text-center">
+        <script>
+            function togglePassword(inputId, buttonId) {
+                var passwordInput = document.getElementById(inputId);
+                var toggleButton = document.getElementById(buttonId);
+
+                toggleButton.addEventListener('mousedown', function() {
+                    passwordInput.type = 'text';
+                });
+
+                toggleButton.addEventListener('mouseup', function() {
+                    passwordInput.type = 'password';
+                });
+
+                // Reset to password type if the mouse leaves the button
+                toggleButton.addEventListener('mouseleave', function() {
+                    passwordInput.type = 'password';
+                });
+            }
+        </script>
+        <h1>Registrati</h1>
+        <div class="d-flex justify-content-center flex-column align-items-center">
+            <form method="post" action="{{ route('registerAdmin.perform') }}" class="col-md-6 mb-3">
+                @csrf
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Inserisci qua i tuoi dati personali (Segnati con * sono i dati da inserire
+                            obbligatoriamente):</h6>
+                        @include('layouts.partials.messages')
+
+                        <div class="mb-3">
+                            <label for="numTelefonoInput" class="form-label">Numero di telefono*: </label>
+                            <input type="text" name="numTelefono"
+                                class="form-control @error('numTelefono') is-invalid @enderror" id="numTelefonoInput"
+                                value="{{ old('numTelefono') }}" placeholder="Numero di telefono" required="required"
+                                autofocus>
+                            @if ($errors->has('numTelefono'))
+                                <span class="text-danger">{{ $errors->first('numTelefono') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Indirizzo Email*: </label>
+                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                                id="emailInput" value="{{ old('email') }}" placeholder="nome@gmail.com" required="required"
+                                autofocus>
+                            @if ($errors->has('email'))
+                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="usernameInput" class="form-label">Username*: </label>
+                            <input type="text" name="username"
+                                class="form-control @error('username') is-invalid @enderror" id="usernameInput"
+                                value="{{ old('username') }}" placeholder="Username" required="required" autofocus>
+                            @if ($errors->has('username'))
+                                <span class="text-danger">{{ $errors->first('username') }}</span>
+                            @endif
+                        </div>
+                        <div class="mb-3">
+                            <label for="passwordInput" class="form-label">Password*:</label>
+                            <div class="input-group">
+                                <input type="password" name="password"
+                                    class="form-control @error('password') is-invalid @enderror" id="passwordInput"
+                                    value="{{ old('password') }}" placeholder="Password" required="required">
+                                <button class="btn btn-outline-secondary" type="button"
+                                    onmousedown="togglePassword('passwordInput', 'togglePasswordBtn')"
+                                    onmouseup="togglePassword('passwordInput', 'togglePasswordBtn')"
+                                    onmouseleave="togglePassword('passwordInput', 'togglePasswordBtn')"
+                                    id="togglePasswordBtn">
+                                    <i class="bi bi-eye"></i> Mostra Password
+                                </button>
+                            </div>
+                            @if ($errors->has('password'))
+                                <span class="text-danger">{{ $errors->first('password') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="confirmPasswordInput" class="form-label">Conferma Password*:</label>
+                            <div class="input-group">
+                                <input type="password" name="password_confirmation"
+                                    class="form-control @error('password_confirmation') is-invalid @enderror"
+                                    id="confirmPasswordInput" value="{{ old('password_confirmation') }}"
+                                    placeholder="Conferma Password" required="required">
+                                <button class="btn btn-outline-secondary" type="button"
+                                    onmousedown="togglePassword('confirmPasswordInput', 'toggleConfirmPasswordBtn')"
+                                    onmouseup="togglePassword('confirmPasswordInput', 'toggleConfirmPasswordBtn')"
+                                    onmouseleave="togglePassword('confirmPasswordInput', 'toggleConfirmPasswordBtn')"
+                                    id="toggleConfirmPasswordBtn">
+                                    <i class="bi bi-eye"></i> Mostra Password
+                                </button>
+                            </div>
+                            @if ($errors->has('password_confirmation'))
+                                <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-success" type="submit">Registrati</button>
+                        <a href="{{ route('home.index') }}" class="btn btn-danger me-2">Home</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+@endsection

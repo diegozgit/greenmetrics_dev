@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Log;
 class LoginController extends Controller
 {
     /**
@@ -29,16 +29,28 @@ class LoginController extends Controller
     {
         $credentials = $request->getCredentials();
 
-        if(!Auth::validate($credentials)):
-            return redirect()->to('login')
-                ->withErrors(trans('auth.failed'));
-        endif;
+        if (Auth::validate($credentials)){
+            if (Auth::attempt($credentials)) {
+                $request->session()->regenerate();
+                return redirect()->intended();
+            }
+        }
 
-        $user = Auth::getProvider()->retrieveByCredentials($credentials);
+        if (Auth::guard('admin')->validate($credentials)){
+            if (Auth::guard('admin')->attempt($credentials)) {
+                $request->session()->regenerate();
+                return redirect()->intended();
+            }
+        }
 
-        Auth::login($user);
+        if (Auth::guard('supplier')->validate($credentials)){
+            if (Auth::guard('supplier')->attempt($credentials)) {
+                $request->session()->regenerate();
+                return redirect()->intended();
+            }
+        }
 
-        return $this->authenticated($request, $user);
+        return redirect()->to('login')->withErrors(trans('auth.failed'));
     }
 
     /**

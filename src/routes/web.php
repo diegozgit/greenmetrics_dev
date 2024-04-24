@@ -22,10 +22,16 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     Route::group(['middleware' => ['guest']], function() {
         /**
-         * Register Routes
+         * Register user Routes
          */
         Route::get('/register', 'RegisterController@show')->name('register.show');
         Route::post('/register', 'RegisterController@register')->name('register.perform');
+
+        /**
+         * Register admin Routes
+         */
+        Route::get('/register-admin', 'RegisterController@showAdmin')->name('registerAdmin.show');
+        Route::post('/register-admin', 'RegisterController@registerAdmin')->name('registerAdmin.perform');
 
         /**
          * Login Routes
@@ -35,7 +41,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     });
 
-    Route::group(['middleware' => ['auth']], function() {
+    Route::group(['middleware' => ['auth:web,admin,supplier']], function() {
         /*
          *
          * Logout Routes
@@ -50,7 +56,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/email/verify/{id}/{hash}', 'VerificationController@verify')->name('verification.verify')->middleware(['signed']);
         Route::post('/email/resend', 'VerificationController@resend')->name('verification.resend');
 
-        Route::group(['middleware' => ['verified']], function() {
+        Route::group(['middleware' => ['verified', 'auth:web']], function() {
             /**
              * Contract Routes
              */
@@ -80,6 +86,24 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::post('/dashboard', 'DashboardController@updateInfo')->name('update-info');
             Route::get('/dashboard/manage-branches', 'DashboardController@userBranches')->name('dashboard.manage-branches');
             Route::delete('/dashboard/manage-branches', 'DashboardController@destroyBranch')->name('dashboard.manage-branches.delete');
+        });
+
+        Route::group(['middleware' => ['verified', 'auth:admin']], function() {
+            /**
+            * Register supplier Routes
+            */
+            Route::get('/register-supplier', 'RegisterController@showSupplier')->name('registerSupplier.show');
+            Route::post('/register-supplier', 'RegisterController@registerSupplier')->name('registerSupplier.perform');
+
+        });
+
+        Route::group(['middleware' => ['verified', 'auth:supplier']], function() {
+            /**
+             * offers Routes
+             */
+            Route::get('/addoffers', 'OfferController@addOfferIndex')->name('add-offer.index');
+            Route::post('/addoffers', 'OfferController@add')->name('add-offer');
+            //Route::delete('/myoffers', 'OfferController@destroy')->name('delete-offer');
         });
 
     });
